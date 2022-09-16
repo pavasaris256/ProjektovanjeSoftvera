@@ -26,7 +26,7 @@ public class LaunchPage implements ActionListener{
 	
 	JFrame okvir = new JFrame();
 	
-	JLabel labela = new JLabel("Izaberite jednu od cetiri igre kako biste poceli sa igrom:");
+	JLabel labela = new JLabel("Izaberite jednu od tri igre kako biste poceli sa igrom:");
 	
 	JButton dugme1 = new JButton("Asocijacije");
 	JButton dugme2 = new JButton("Ko zna zna");
@@ -66,7 +66,7 @@ public class LaunchPage implements ActionListener{
 		
 	
 
-	abstract class JDijalog implements ActionListener {
+/*	abstract class JDijalog implements ActionListener {
 		JFrame okvir;
 		
 		public JDijalog()   {
@@ -81,25 +81,24 @@ public class LaunchPage implements ActionListener{
 			
 		}
 		}
+	
+	*/
 	}
-	
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		JDialog d = new JDialog();
+	/*	JDialog d = new JDialog();
 		d.setSize(200,200);
 		d.setVisible(true);
 		potvrda.setSize(50,50);
-		
+		*/
 		if(e.getSource()==dugme1) {
 			//okvir.dispose();
-			new JDialog();
-			d.add(potvrda);
-			if (e.getSource()== potvrda ) {
+			//new JDialog();
+			//d.add(potvrda);
+			/*if (e.getSource()== potvrda ) {*/
 				AsocijacijeWindow Asocijacije = new AsocijacijeWindow();
 		}
-			}
 			
 		
 
@@ -114,7 +113,6 @@ public class LaunchPage implements ActionListener{
 			PonudjenoWindow Ponudjeno = new PonudjenoWindow();		
 		}	
 	}
-
 
  class PonudjenoWindow implements ActionListener{
 
@@ -359,8 +357,7 @@ public class LaunchPage implements ActionListener{
 		dugmeB.setEnabled(false);
 		dugmeC.setEnabled(false);
 		dugmeD.setEnabled(false);
-		
-
+	
 		
 		rezultat = tacan_pokusaj/ukupno_pitanja;
 		
@@ -391,7 +388,7 @@ public class LaunchPage implements ActionListener{
 						"Drzava koja se geograrfski nalazi unutar Juznoaficke republike na slovo L je:"
 					   };
 	String[] opcije = {
-							"CRVENA",
+							"crvena",
 							"beograd",
 							"4",
 							"lesoto"
@@ -404,7 +401,7 @@ public class LaunchPage implements ActionListener{
 	int ukupno_pitanja = pitanja.length;
 	int rezultat;
 
-	ImageIcon ikonica = new ImageIcon("arrowsign.png");
+	ImageIcon ikonica = new ImageIcon("ikonica.png");
 	JFrame okvir = new JFrame();
 	JTextField tekst = new JTextField();
 	JTextField tekstodgovor = new JTextField();
@@ -452,7 +449,7 @@ public class LaunchPage implements ActionListener{
 		
 		dugmeX.setEnabled(true);
 		dugmeX.setBounds(400,480,100,100);
-		dugmeX.setFont(new Font("Cambria", Font.PLAIN, 35));
+		//dugmeX.setFont(new Font("Cambria", Font.PLAIN, 35));
 		dugmeX.setFocusable(false);
 		dugmeX.addActionListener(this);
 		dugmeX.setIcon(ikonica);
@@ -521,6 +518,7 @@ public class LaunchPage implements ActionListener{
 		
 		if (!name.equals(opcije[indeks]))
 			tekstodgovor.setForeground(Color.red);
+		else tekstodgovor.setForeground(Color.green);
 		
 
 		Timer pause = new Timer(2000, new ActionListener()
@@ -615,106 +613,58 @@ class AsocijacijeWindow implements ActionListener {
 		okvir.setResizable(false);
 		okvir.setVisible(true);
 		
-		dugmeA1.setEnabled(true);
-		dugmeA1.setBounds(10,30,190,50);
-		dugmeA1.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeA1.setFocusable(false);
-		dugmeA1.addActionListener(this);
+		abstract class dugme extends Dugmad {
+		}
 		
-		dugmeA2.setEnabled(true);
+		dugmeA1.setBounds(10,30,190,50);
+		dugmeA1.addActionListener(this);
+	
 		dugmeA2.setBounds(50,85,190,50);
-		dugmeA2.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeA2.setFocusable(false);
 		dugmeA2.addActionListener(this);
 		
-		dugmeA3.setEnabled(true);
 		dugmeA3.setBounds(90,140,190,50);
-		dugmeA3.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeA3.setFocusable(false);
 		dugmeA3.addActionListener(this);
 		
-		dugmeA4.setEnabled(true);
 		dugmeA4.setBounds(130,195,190,50);
-		dugmeA4.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeA4.setFocusable(false);
 		dugmeA4.addActionListener(this);
 		
-		dugmeB1.setEnabled(true);
 		dugmeB1.setBounds(480,30,190,50);
-		dugmeB1.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeB1.setFocusable(false);
 		dugmeB1.addActionListener(this);
 		
-		dugmeB2.setEnabled(true);
 		dugmeB2.setBounds(440,85,190,50);
-		dugmeB2.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeB2.setFocusable(false);
 		dugmeB2.addActionListener(this);
 		
-		dugmeB3.setEnabled(true);
 		dugmeB3.setBounds(400,140,190,50);
-		dugmeB3.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeB3.setFocusable(false);
 		dugmeB3.addActionListener(this);
 		
-		dugmeB4.setEnabled(true);
 		dugmeB4.setBounds(360,195,190,50);
-		dugmeB4.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeB4.setFocusable(false);
 		dugmeB4.addActionListener(this);
 		
-		dugmeC1.setEnabled(true);
 		dugmeC1.setBounds(130,435,190,50);
-		dugmeC1.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeC1.setFocusable(false);
 		dugmeC1.addActionListener(this);
 		
-		dugmeC2.setEnabled(true);
 		dugmeC2.setBounds(90,490,190,50);
-		dugmeC2.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeC2.setFocusable(false);
 		dugmeC2.addActionListener(this);
-		
-		dugmeC3.setEnabled(true);
+	
 		dugmeC3.setBounds(50,545,190,50);
-		dugmeC3.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeC3.setFocusable(false);
 		dugmeC3.addActionListener(this);
 		
-		dugmeC4.setEnabled(true);
 		dugmeC4.setBounds(10,600,190,50);
-		dugmeC4.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeC4.setFocusable(false);
 		dugmeC4.addActionListener(this);
 		
-		dugmeD1.setEnabled(true);
 		dugmeD1.setBounds(360,435,190,50);
-		dugmeD1.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeD1.setFocusable(false);
 		dugmeD1.addActionListener(this);
 		
-		dugmeD2.setEnabled(true);
 		dugmeD2.setBounds(400,490,190,50);
-		dugmeD2.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeD2.setFocusable(false);
 		dugmeD2.addActionListener(this);
 		
-		dugmeD3.setEnabled(true);
 		dugmeD3.setBounds(440,545,190,50);
-		dugmeD3.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeD3.setFocusable(false);
 		dugmeD3.addActionListener(this);
 		
-		dugmeD4.setEnabled(true);
 		dugmeD4.setBounds(480,600,190,50);
-		dugmeD4.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeD4.setFocusable(false);
 		dugmeD4.addActionListener(this);
 		
-		dugmeX.setEnabled(true);
 		dugmeX.setBounds(10,315,100,50);
-		dugmeX.setFont(new Font("Cambria", Font.PLAIN, 35));
-		dugmeX.setFocusable(false);
 		dugmeX.addActionListener(this);
 		
 		A.setBounds(130,250,190,50);
@@ -775,7 +725,7 @@ class AsocijacijeWindow implements ActionListener {
 // Kad se stisne na kolonu, napravi da se skloni tekst koji je bio tu pre (ime kolone)
 	//Automatski neka moze da se kuca
 	//Kada se otvori konacno, da se sva polja u koloni otvore
-	public void actionPerformed1(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		
 		String nameA = A.getText();
 		String nameB = B.getText();
@@ -800,7 +750,7 @@ class AsocijacijeWindow implements ActionListener {
 
 		if(e.getSource()==dugmeX){
 			if (nameA.equals("FILOZOF") || nameA.equals("filozof")){
-				A.setText(nameA.toUpperCase());
+				A.setText(nameA);
 				A.setEditable(false);
 				A.setForeground(Color.GREEN);
 				dugmeA1.setEnabled(false);
@@ -909,10 +859,12 @@ class AsocijacijeWindow implements ActionListener {
 
 
 
-	@Override
+/*	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+*/
 }
+
 }
